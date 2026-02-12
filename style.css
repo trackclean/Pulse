@@ -1,0 +1,485 @@
+/* ============================================
+   Global Styles
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4a9eff;
+    --primary-dark: #2a7dd4;
+    --secondary-color: #28a745;
+    --text-dark: #e0e0e0;
+    --text-light: #a0a0a0;
+    --bg-light: #1a1a1a;
+    --bg-white: #0d0d0d;
+    --border-color: #333333;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+
+.navbar {
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.nav-brand h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+    background: linear-gradient(135deg, #1a1f3a 0%, #0d0d1f 100%);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   Features Section
+   ============================================ */
+
+.features {
+    padding: 80px 20px;
+    padding: 80px 20px;
+    background-color: var(--bg-light);
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--bg-white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.feature-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   Download Section
+   ============================================ */
+
+.download {
+    padding: 80px 20px;
+    background-color: var(--bg-white);
+}
+
+.download h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.download-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.download-card {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.os-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.download-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.version-info {
+    background-color: var(--bg-white);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.version-detail {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin-top: 0.25rem;
+}
+
+.download-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.download-link {
+    display: block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.download-link:hover {
+    background-color: var(--primary-dark);
+}
+
+.download-footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+    color: var(--text-light);
+}
+
+.download-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: 600;
+}
+
+.download-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Donate Section
+   ============================================ */
+
+.donate {
+    background: linear-gradient(135deg, #1a1f3a 0%, #2a3a5a 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.donate h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.donate > .container > p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.95;
+}
+
+.donate-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.paypal-button {
+    display: block;
+    max-width: 200px;
+}
+
+.donate-button {
+    display: inline-block;
+    background-color: white;
+    color: var(--primary-color);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: 2px solid white;
+}
+
+.donate-button:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.donate-button.secondary {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+}
+
+.donate-button.secondary:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.donate-note {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+    background-color: #0a0a0a;
+    color: white;
+    padding: 2rem 20px;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .features h2,
+    .download h2,
+    .donate h2 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .features,
+    .download,
+    .donate {
+        padding: 50px 20px;
+    }
+
+    .download-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donate-buttons {
+        flex-direction: column;
+    }
+
+    .paypal-button {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-brand h1 {
+        font-size: 1.25rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .features h2,
+    .download h2,
+    .donate h2 {
+        font-size: 1.5rem;
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+
+    .os-icon {
+        font-size: 2.5rem;
+    }
+}
+/* Gallery + Lightbox */
+.gallery { padding: 60px 20px; background: var(--bg-light); color: var(--text-dark); }
+.gallery h2 { text-align:center; font-size:2rem; margin-bottom:.25rem; color:var(--primary-color); }
+.gallery-sub { text-align:center; color:var(--text-light); margin-bottom:1.5rem; }
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.gallery-item { border:0; padding:0; background:transparent; cursor:pointer; border-radius:8px; overflow:hidden; box-shadow:var(--shadow); }
+.gallery-item img { width:100%; height:160px; object-fit:cover; display:block; transition:transform .25s ease; }
+.gallery-item:hover img { transform:scale(1.03); }
+
+/* Lightbox */
+.lightbox-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:1200; }
+.lightbox-backdrop.open { display:flex; }
+.lightbox-content { max-width:90vw; max-height:90vh; display:flex; align-items:center; justify-content:center; gap:12px; }
+.lightbox-img { max-width:100%; max-height:100%; border-radius:6px; box-shadow:var(--shadow-lg); }
+.lightbox-close, .lightbox-nav { background:rgba(255,255,255,.06); color:var(--text-dark); border:0; padding:8px 12px; border-radius:6px; cursor:pointer; font-weight:700; }
+@media (max-width:480px){ .gallery-item img { height:120px } .lightbox-content{ padding:8px } }

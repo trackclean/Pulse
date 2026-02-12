@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Track Buddy - Local Audio Sample Cleaner & Organizer</title>
+    <meta name="description" content="A local-first audio sample cleaner and organizer. Analyze, organize, and export your audio samples with silence detection, duplicate removal, and musical key detection.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Clean Track Buddy</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#donate">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Clean Track Buddy</h2>
+                <p>A local-first audio sample cleaner and organizer. Analyze, rename, categorize, and export your samples—all on your machine, all the time.</p>
+                <a href="#download" class="cta-button">Download Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Local-First & Private</h3>
+                    <p>All analysis runs on your machine. No files are ever uploaded or shared.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Silence Detection</h3>
+                    <p>Automatically detect and remove silent or near-silent files from your packs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Duplicate Detection</h3>
+                    <p>SHA-256 hashing identifies duplicates instantly. Clean up redundant samples.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>Musical Key Detection</h3>
+                    <p>Optional analysis detects the musical key of each sample with confidence scores.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Smart Renaming</h3>
+                    <p>Auto-rename with custom patterns, keywords, and naming rules. Full preview before apply.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Flexible Export</h3>
+                    <p>Export as folders or zip archives. Organize into categories or keep flat structure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2>Download Clean Track Buddy</h2>
+            <p class="download-subtitle">Available for Linux, macOS, and Windows. Built with Tauri for performance and reliability.</p>
+            <div class="download-grid">
+                <!-- Linux -->
+                <div class="download-card">
+                    <div class="os-icon">🐧</div>
+                    <h3>Linux</h3>
+                    <div class="version-info">
+                        <p>Latest Version: 1.0.0</p>
+                        <p class="version-detail">x86_64 & ARM64</p>
+                    </div>
+                    <div class="download-links">
+                        <a href="https://github.com/trackclean/clean-track/releases/download/v1.0.0/clean-track-buddy_1.0.0_amd64.AppImage" class="download-link" download>
+                            AppImage (x86_64)
+                        </a>
+                        <a href="https://github.com/trackclean/clean-track/releases/download/v1.0.0/clean-track-buddy_1.0.0_arm64.AppImage" class="download-link" download>
+                            AppImage (ARM64)
+                        </a>
+                        <a href="https://github.com/trackclean/clean-track/releases/download/v1.0.0/clean-track-buddy_1.0.0_amd64.deb" class="download-link" download>
+                            Debian/Ubuntu (deb)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- macOS -->
+                <div class="download-card">
+                    <div class="os-icon">🍎</div>
+                    <h3>macOS</h3>
+                    <div class="version-info">
+                        <p>Latest Version: 1.0.0</p>
+                        <p class="version-detail">Intel & Apple Silicon</p>
+                    </div>
+                    <div class="download-links">
+                        <a href="https://github.com/trackclean/clean-track/releases/download/v1.0.0/Clean.Track.Buddy_1.0.0_universal.dmg" class="download-link" download>
+                            Download (Universal DMG)
+                        </a>
+                        <a href="https://github.com/trackclean/clean-track/releases/download/v1.0.0/Clean.Track.Buddy_1.0.0_x64.app.tar.gz" class="download-link" download>
+                            Download (Intel)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Windows -->
+                <div class="download-card">
+                    <div class="os-icon">🪟</div>
+                    <h3>Windows</h3>
+                    <div class="version-info">
+                        <p>Latest Version: 1.0.0</p>
+                    </div>
+                    <div class="download-links">
+                        <a href="https://github.com/trackclean/clean-track/releases/download/v1.0.0/Clean.Track.Buddy_1.0.0_x64_en-US.msi" class="download-link" download>
+                            Installer (MSI)
+                        </a>
+                        <a href="https://github.com/trackclean/clean-track/releases/download/v1.0.0/Clean.Track.Buddy_1.0.0_x64-setup.exe" class="download-link" download>
+                            EXE Installer
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="download-footer">
+                <p><a href="https://github.com/trackclean/clean-track">View on GitHub</a> | <a href="https://github.com/trackclean/clean-track/releases">All Releases</a> | <a href="https://github.com/trackclean/clean-track#quick-start">Quick Start Guide</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section id="screenshots" class="gallery">
+        <div class="container">
+            <h2>Screenshots</h2>
+            <p class="gallery-sub">A quick look at Clean Track Buddy's UI.</p>
+            <div class="gallery-grid">
+                <button class="gallery-item" data-index="0"><img src="assets/screenshots/Screenshot 2026-02-10 193107.png" alt="Screenshot 1" loading="lazy"></button>
+                <button class="gallery-item" data-index="1"><img src="assets/screenshots/Screenshot 2026-02-10 193129.png" alt="Screenshot 2" loading="lazy"></button>
+                <button class="gallery-item" data-index="2"><img src="assets/screenshots/Screenshot 2026-02-10 193149.png" alt="Screenshot 3" loading="lazy"></button>
+                <button class="gallery-item" data-index="3"><img src="assets/screenshots/Screenshot 2026-02-10 193205.png" alt="Screenshot 4" loading="lazy"></button>
+                <button class="gallery-item" data-index="4"><img src="assets/screenshots/Screenshot 2026-02-10 193222.png" alt="Screenshot 5" loading="lazy"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate" class="donate">
+        <div class="container">
+            <h2>Support Clean Track Buddy</h2>
+            <p>Clean Track Buddy is completely free and always will be. If you love the app and want to support development, consider making a donation or starring us on GitHub!</p>
+            <div class="donate-buttons">
+                <!-- PayPal Donation Button -->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_donations">
+                    <input type="hidden" name="business" value="ngerksic@gmail.com">
+                    <input type="hidden" name="item_name" value="Clean Track Buddy Development">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="lc" value="US">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" 
+                           border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" class="paypal-button">
+                </form>
+
+                <!-- GitHub Sponsor -->
+                <a href="https://github.com/sponsors/trackclean" class="donate-button">
+                    Sponsor on GitHub
+                </a>
+
+                <!-- Star on GitHub -->
+                <a href="https://github.com/trackclean/clean-track" class="donate-button secondary">
+                    ⭐ Star on GitHub
+                </a>
+            </div>
+            <p class="donate-note">All donations are voluntary and greatly appreciated!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Clean Track Buddy. Built with Tauri + React. Local-first audio sample cleaning.</p>
+            <div class="footer-links">
+                <a href="https://github.com/trackclean/clean-track">GitHub</a>
+                <a href="https://github.com/trackclean/clean-track/issues">Issues & Feedback</a>
+                <a href="https://github.com/trackclean/clean-track#readme">Documentation</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
