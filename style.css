@@ -76,7 +76,8 @@ body {
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--primary-color);
 }
 
@@ -127,7 +128,6 @@ body {
    ============================================ */
 
 .features {
-    padding: 80px 20px;
     padding: 80px 20px;
     background-color: var(--bg-light);
 }
