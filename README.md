@@ -278,6 +278,24 @@ Download the latest release for your platform from the [Releases](https://github
 
 ---
 
+## Windows SmartScreen Notice
+
+When downloading the Windows `.exe` installer, you may see a **"Windows protected your PC"** warning from Microsoft Defender SmartScreen.
+
+This happens because the application is distributed independently and is not code-signed with a commercial certificate. The app is open-source and the source code is publicly available in this repository.
+
+If you trust this release:
+
+1. Click **More info**
+2. Click **Run anyway**
+
+To verify file integrity, you can compare the SHA-256 hash of the downloaded file with the hash provided in the release assets.
+
+Pulse does not contain telemetry, installers bundles, or background services. All processing runs locally.
+
+---
+
+
 <div align="center">
 
 **Made for producers, by producers.**
