@@ -377,19 +377,6 @@ export const SettingsDialog = ({ settings, onSave, onResetCategories }: Settings
                                         />
                                     </div>
                                     <div className="flex items-center justify-between space-x-2">
-                                        <Label htmlFor="bpm-detection" className="flex-1 cursor-pointer">
-                                            Detect BPM
-                                            <span className="block text-xs text-muted-foreground font-normal mt-1">
-                                                Estimate tempo using aubiotrack. Works best with loops and full mixes — stems may not have enough rhythm for detection.
-                                            </span>
-                                        </Label>
-                                        <Switch
-                                            id="bpm-detection"
-                                            checked={localSettings.enableBpmDetection}
-                                            onCheckedChange={(checked) => setLocalSettings({ ...localSettings, enableBpmDetection: checked })}
-                                        />
-                                    </div>
-                                    <div className="flex items-center justify-between space-x-2">
                                         <Label htmlFor="auto-categorize" className="flex-1 cursor-pointer">
                                             Auto-categorize on import
                                             <span className="block text-xs text-muted-foreground font-normal mt-1">

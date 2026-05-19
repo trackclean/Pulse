@@ -7,7 +7,7 @@ import { Toolbar } from '@/components/Toolbar';
 import { CategoryManager } from '@/components/CategoryManager';
 import { SettingsDialog } from '@/components/SettingsDialog';
 import { AudioFile } from '@/types/audio';
-import { analyzeSilence, getAudioDuration, processAudioFile, detectKeyForFile, classifyTrackTypes, detectBpmForFile } from '@/utils/audioAnalysis';
+import { analyzeSilence, getAudioDuration, processAudioFile, detectKeyForFile, classifyTrackTypes } from '@/utils/audioAnalysis';
 import { matchesBinding } from '@/utils/keybindings';
 import { applyAutoRenameAll, categorizeTrack } from '@/utils/renameUtils';
 import { exportFilesAsZip } from '@/utils/exportUtils';
@@ -566,36 +566,7 @@ const Index = () => {
       f.trackType = typeMap.get(f.id);
     }
 
-    // Second pass: run BPM detection for non-stems
-    if (settings.enableBpmDetection) {
-      const bpmTargets = processedFiles.filter(f => f.duration > 0 && f.duration < 120 && f.trackType !== 'stem');
-      const bpmConcurrency = 4;
-      let bpmFailures = 0;
-      let bpmVcRuntimeError = false;
-      for (let i = 0; i < bpmTargets.length; i += bpmConcurrency) {
-        const batch = bpmTargets.slice(i, i + bpmConcurrency);
-        const results = await Promise.all(
-          batch.map(f => detectBpmForFile(f.file, f.filePath))
-        );
-        for (let j = 0; j < batch.length; j++) {
-          batch[j].bpm = results[j].bpm;
-          batch[j].bpmConfidence = results[j].bpmConfidence;
-          if (results[j].error) {
-            bpmFailures++;
-            if (results[j].error.includes('VCRUNTIME_MISSING')) bpmVcRuntimeError = true;
-          }
-        }
-      }
-      if (bpmFailures > 0) {
-        toast.warning(`BPM detection failed for ${bpmFailures} file${bpmFailures > 1 ? 's' : ''}`, {
-          description: bpmVcRuntimeError
-            ? 'Visual C++ Runtime is required. Download it from: aka.ms/vs/17/release/vc_redist.x64.exe'
-            : 'Check the console for more details.',
-          duration: 8000,
-          icon: <AlertTriangle className="w-5 h-5" />,
-        });
-      }
-    }
+    // BPM detection removed - users can manually enter BPM
 
     setAudioFiles((prev) => {
       const startIndex = prev.length;
