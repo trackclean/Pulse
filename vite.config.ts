@@ -5,8 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Required for Tauri: assets must use relative paths in production
-  base: './',
+  // Set base path: /Pulse/ for GitHub Pages, ./ for Tauri
+  base: process.env.TAURI_PLATFORM ? './' : '/Pulse/',
   server: {
     host: "::",
     port: 8080,

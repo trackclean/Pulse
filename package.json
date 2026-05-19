@@ -16,13 +16,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gerigazda0/clean-track-buddy.git"
+    "url": "https://github.com/trackclean/Pulse.git"
   },
-  "homepage": "https://github.com/gerigazda0/clean-track-buddy",
+  "homepage": "https://github.com/trackclean/Pulse",
   "bugs": {
-    "url": "https://github.com/gerigazda0/clean-track-buddy/issues"
+    "url": "https://github.com/trackclean/Pulse/issues"
   },
-  "author": "gerigazda0",
+  "author": "trackclean",'
   "scripts": {
     "dev": "node -r ./scripts/vite-crypto-polyfill.js ./node_modules/vite/bin/vite",
     "build": "vite build",
