@@ -38,10 +38,10 @@ export function KeyTreeSelector({ value, onChange, disabled, className }: KeyTre
         <Button
           variant="outline"
           size="sm"
-          className={cn('h-7 text-xs font-mono w-full justify-between px-2', className)}
+          className={cn('h-7 text-xs font-mono min-w-[70px] w-fit justify-center px-2', className)}
           disabled={disabled}
         >
-          <span className="flex-1 text-left truncate">{displayValue}</span>
+          <span className="truncate">{displayValue}</span>
           <ChevronDown className="h-3 w-3 opacity-50 ml-1 flex-shrink-0" />
         </Button>
       </PopoverTrigger>

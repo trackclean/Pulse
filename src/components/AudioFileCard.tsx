@@ -311,8 +311,8 @@ const AudioFileCardComponent = ({
           />
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 flex-wrap justify-end">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground whitespace-nowrap">
             <Volume2 className="w-4 h-4" />
             <span className="font-mono">{formatDuration(audioFile.duration)}</span>
           </div>
@@ -341,7 +341,7 @@ const AudioFileCardComponent = ({
             ) : (
               <Badge
                 variant="secondary"
-                className={`h-7 text-xs font-mono px-2 cursor-pointer ${audioFile.trackType === 'stem' && audioFile.bpm == null ? 'opacity-50' : ''}`}
+                className={`h-7 text-xs font-mono px-2 cursor-pointer min-w-[80px] text-center ${audioFile.trackType === 'stem' && audioFile.bpm == null ? 'opacity-50' : ''}`}
                 title={
                   typeof audioFile.bpm === 'number' && typeof audioFile.bpmConfidence === 'number'
                     ? `Confidence ${audioFile.bpmConfidence.toFixed(2)}`
