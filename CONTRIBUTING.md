@@ -35,7 +35,7 @@ We encourage feature suggestions! Please:
 1. **Fork** the repository on GitHub
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/clean-track-buddy.git
+   git clone https://github.com/gerigazda0/clean-track-buddy.git
    cd clean-track-buddy
    ```
 3. **Create a branch** for your feature or bugfix:
@@ -135,7 +135,6 @@ npm run test:tauri     # Test with Tauri backend
 ### Key Features by Module
 
 - **Audio Analysis** (`src-tauri/src/`):
-  - BPM detection via aubio (`bpm_detection.rs`)
   - Musical key detection (`key_detection.rs`)
   
 - **UI Components** (`src/components/`):
@@ -154,8 +153,8 @@ npm run test:tauri     # Test with Tauri backend
 
 ## Questions?
 
-- Check [existing issues](https://github.com/YOUR_USERNAME/clean-track-buddy/issues)
-- Start a [discussion](https://github.com/YOUR_USERNAME/clean-track-buddy/discussions)
+- Check [existing issues](https://github.com/gerigazda0/clean-track-buddy/issues)
+- Start a [discussion](https://github.com/gerigazda0/clean-track-buddy/discussions)
 - Review the [docs/](docs/) folder
 
 ## License

@@ -21,8 +21,8 @@ Clean Track Buddy is a local-first audio sample cleaner and organizer built with
 - **Waveform Display**: Visual peaks with play/pause and drag-to-seek
 - **Silence Detection**: Scans 100ms RMS windows to flag silent files
 - **Duplicate Detection**: SHA-256 content hashing during import
-- **BPM Detection**: Optional beat-per-minute analysis (aubio-based)
 - **Key Detection**: Musical key identification with confidence scores
+- **Manual BPM Entry**: Enter BPM values manually for each track
 
 ### Organization & Renaming
 - **Auto-Categorization**: Keyword-based rules with customizable categories
@@ -92,20 +92,7 @@ npm run tauri build
 
 ### System Requirements
 
-#### Linux Users - BPM Detection
-To enable BPM detection on Linux, install `aubio-tools`:
-```bash
-# Debian/Ubuntu
-sudo apt-get install aubio-tools
-
-# Fedora
-sudo dnf install aubio-tools
-
-# Arch
-sudo pacman -S aubio
-```
-
-BPM detection works out of the box on Windows and macOS.
+No additional system dependencies are required.
 
 ## 🛠️ Development
 
@@ -161,12 +148,6 @@ npm run test:report      # View Playwright test report
 - **Build**: Vite + Tauri CLI
 
 ### Audio Analysis
-
-#### BPM Detection
-Located in `src-tauri/src/bpm_detection.rs`:
-- Uses aubio's beat tracking algorithm
-- Supports various audio formats via ffmpeg
-- Returns confidence scores
 
 #### Key Detection  
 Located in `src-tauri/src/key_detection.rs`:
