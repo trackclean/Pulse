@@ -1,0 +1,296 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Default - Cyberpunk Neon (Teal/Dark) */
+    --background: 220 30% 8%;
+    --foreground: 210 20% 95%;
+    --card: 220 25% 12%;
+    --card-foreground: 210 20% 95%;
+    --popover: 220 30% 10%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 180 80% 55%;
+    --primary-foreground: 220 30% 8%;
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 210 10% 60%;
+    --accent: 180 80% 55%;
+    --accent-foreground: 220 30% 8%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 20% 95%;
+    --border: 220 20% 18%;
+    --input: 220 20% 16%;
+    --ring: 180 80% 55%;
+    --radius: 0.75rem;
+
+    --gradient-card: linear-gradient(135deg, hsl(220 25% 12%) 0%, hsl(220 28% 14%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(180 80% 55%) 0%, hsl(180 75% 48%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 70% 55%) 0%, hsl(0 65% 48%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(220 30% 4% / 0.6);
+    --shadow-button: 0 0 20px hsl(180 80% 55% / 0.3);
+    --waveform-progress: 180 80% 55%;
+    --waveform-wave: 180 50% 40%;
+    --waveform-silent: 0 70% 55%;
+    --toast-opacity: 0.7;
+  }
+
+  [data-theme='midnight'] {
+    /* Midnight - Deep Blue/Purple */
+    --background: 240 25% 10%;
+    --foreground: 240 10% 95%;
+    --card: 240 20% 15%;
+    --card-foreground: 240 10% 95%;
+    --popover: 240 25% 12%;
+    --popover-foreground: 240 10% 95%;
+    --primary: 260 80% 65%;
+    --primary-foreground: 240 25% 10%;
+    --secondary: 240 15% 20%;
+    --secondary-foreground: 240 10% 95%;
+    --muted: 240 15% 20%;
+    --muted-foreground: 240 10% 65%;
+    --accent: 260 80% 65%;
+    --accent-foreground: 240 25% 10%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 240 10% 95%;
+    --border: 240 15% 25%;
+    --input: 240 15% 20%;
+    --ring: 260 80% 65%;
+
+    --gradient-card: linear-gradient(135deg, hsl(240 20% 15%) 0%, hsl(240 22% 18%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(260 80% 65%) 0%, hsl(260 75% 55%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 70% 60%) 0%, hsl(0 65% 50%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(240 30% 5% / 0.6);
+    --shadow-button: 0 0 20px hsl(260 80% 65% / 0.3);
+    --waveform-progress: 260 80% 65%;
+    --waveform-wave: 260 50% 45%;
+    --waveform-silent: 0 70% 60%;
+  }
+
+  [data-theme='forest'] {
+    /* Forest - Deep Green/Earth */
+    --background: 150 20% 8%;
+    --foreground: 150 10% 95%;
+    --card: 150 15% 12%;
+    --card-foreground: 150 10% 95%;
+    --popover: 150 20% 10%;
+    --popover-foreground: 150 10% 95%;
+    --primary: 140 60% 50%;
+    --primary-foreground: 150 20% 8%;
+    --secondary: 150 15% 18%;
+    --secondary-foreground: 150 10% 95%;
+    --muted: 150 15% 16%;
+    --muted-foreground: 150 10% 60%;
+    --accent: 140 60% 50%;
+    --accent-foreground: 150 20% 8%;
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 150 10% 95%;
+    --border: 150 15% 20%;
+    --input: 150 15% 16%;
+    --ring: 140 60% 50%;
+
+    --gradient-card: linear-gradient(135deg, hsl(150 15% 12%) 0%, hsl(150 18% 14%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(140 60% 50%) 0%, hsl(140 55% 40%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 60% 55%) 0%, hsl(0 55% 45%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(150 30% 4% / 0.6);
+    --shadow-button: 0 0 20px hsl(140 60% 50% / 0.3);
+    --waveform-progress: 140 60% 50%;
+    --waveform-wave: 140 40% 35%;
+    --waveform-silent: 0 60% 55%;
+  }
+
+  [data-theme='sunset'] {
+    /* Sunset - Warm Orange/Red */
+    --background: 20 20% 10%;
+    --foreground: 20 10% 95%;
+    --card: 20 15% 14%;
+    --card-foreground: 20 10% 95%;
+    --popover: 20 20% 12%;
+    --popover-foreground: 20 10% 95%;
+    --primary: 25 90% 60%;
+    --primary-foreground: 20 20% 10%;
+    --secondary: 20 15% 20%;
+    --secondary-foreground: 20 10% 95%;
+    --muted: 20 15% 18%;
+    --muted-foreground: 20 10% 65%;
+    --accent: 25 90% 60%;
+    --accent-foreground: 20 20% 10%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 20 10% 95%;
+    --border: 20 15% 25%;
+    --input: 20 15% 20%;
+    --ring: 25 90% 60%;
+
+    --gradient-card: linear-gradient(135deg, hsl(20 15% 14%) 0%, hsl(20 18% 16%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(25 90% 60%) 0%, hsl(25 85% 50%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 70% 60%) 0%, hsl(0 65% 50%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(20 30% 5% / 0.6);
+    --shadow-button: 0 0 20px hsl(25 90% 60% / 0.3);
+    --waveform-progress: 25 90% 60%;
+    --waveform-wave: 25 50% 45%;
+    --waveform-silent: 0 70% 60%;
+  }
+
+  [data-theme='light'] {
+    /* Light - Studio Bright */
+    --background: 210 30% 98%;
+    --foreground: 220 15% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 12%;
+    --primary: 195 80% 45%;
+    --primary-foreground: 210 30% 98%;
+    --secondary: 210 25% 94%;
+    --secondary-foreground: 220 15% 18%;
+    --muted: 210 20% 92%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 195 80% 45%;
+    --accent-foreground: 210 30% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 88%;
+    --input: 210 20% 90%;
+    --ring: 195 80% 45%;
+
+    --gradient-card: linear-gradient(135deg, hsl(210 30% 96%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(195 80% 45%) 0%, hsl(195 75% 40%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 70% 50%) 0%, hsl(0 65% 45%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(220 20% 30% / 0.15);
+    --shadow-button: 0 0 20px hsl(195 80% 45% / 0.25);
+    --waveform-progress: 195 80% 45%;
+    --waveform-wave: 195 50% 35%;
+    --waveform-silent: 0 70% 50%;
+  }
+
+  [data-theme='light-midnight'] {
+    /* Midnight - Light */
+    --background: 245 35% 98%;
+    --foreground: 245 18% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 245 18% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 245 18% 14%;
+    --primary: 258 78% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 248 35% 94%;
+    --secondary-foreground: 245 18% 20%;
+    --muted: 248 30% 92%;
+    --muted-foreground: 245 10% 40%;
+    --accent: 258 78% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 248 26% 88%;
+    --input: 248 24% 90%;
+    --ring: 258 78% 50%;
+
+    --gradient-card: linear-gradient(135deg, hsl(245 35% 97%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(258 78% 50%) 0%, hsl(258 72% 45%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 70% 50%) 0%, hsl(0 65% 45%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(245 20% 30% / 0.15);
+    --shadow-button: 0 0 20px hsl(258 78% 50% / 0.25);
+    --waveform-progress: 258 78% 50%;
+    --waveform-wave: 258 45% 40%;
+    --waveform-silent: 0 70% 50%;
+  }
+
+  [data-theme='light-forest'] {
+    /* Forest - Light */
+    --background: 145 28% 98%;
+    --foreground: 145 18% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 145 18% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 145 18% 14%;
+    --primary: 142 62% 38%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 145 24% 94%;
+    --secondary-foreground: 145 18% 20%;
+    --muted: 145 22% 92%;
+    --muted-foreground: 145 10% 40%;
+    --accent: 142 62% 38%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 145 20% 88%;
+    --input: 145 18% 90%;
+    --ring: 142 62% 38%;
+
+    --gradient-card: linear-gradient(135deg, hsl(145 28% 97%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(142 62% 38%) 0%, hsl(142 58% 33%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 70% 50%) 0%, hsl(0 65% 45%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(145 20% 30% / 0.15);
+    --shadow-button: 0 0 20px hsl(142 62% 38% / 0.25);
+    --waveform-progress: 142 62% 38%;
+    --waveform-wave: 142 40% 34%;
+    --waveform-silent: 0 70% 50%;
+  }
+
+  [data-theme='light-sunset'] {
+    /* Sunset - Light */
+    --background: 26 38% 98%;
+    --foreground: 24 18% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 18% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 18% 14%;
+    --primary: 24 85% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 26 34% 94%;
+    --secondary-foreground: 24 18% 22%;
+    --muted: 26 30% 92%;
+    --muted-foreground: 24 10% 42%;
+    --accent: 24 85% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 26 26% 88%;
+    --input: 26 24% 90%;
+    --ring: 24 85% 48%;
+
+    --gradient-card: linear-gradient(135deg, hsl(26 38% 97%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(24 85% 48%) 0%, hsl(24 80% 43%) 100%);
+    --gradient-danger: linear-gradient(135deg, hsl(0 70% 50%) 0%, hsl(0 65% 45%) 100%);
+    --shadow-card: 0 4px 24px -6px hsl(24 20% 30% / 0.15);
+    --shadow-button: 0 0 20px hsl(24 85% 48% / 0.25);
+    --waveform-progress: 24 85% 48%;
+    --waveform-wave: 24 45% 40%;
+    --waveform-silent: 0 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .toaster .toast {
+    background-color: hsl(var(--background) / var(--toast-opacity, 1));
+    border-color: hsl(var(--border) / 0.6);
+  }
+
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
+  }
+}

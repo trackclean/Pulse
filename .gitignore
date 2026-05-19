@@ -1,0 +1,54 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Tauri build artifacts
+src-tauri/target/
+
+# Tauri updater private keys (NEVER commit these!)
+*.key
+.tauri/
+
+# Playwright
+test-results/
+playwright-report/
+playwright-report-tauri/
+playwright/.cache/
+playwright-report-tauri*.zip
+
+# Claude Code local settings
+.claude/
+
+# Bun lock file (project uses npm in CI)
+bun.lockb
+
+# Playwright MCP artifacts
+.playwright-mcp/
+
+# Test audio fixtures (local dev samples & CI-generated audio)
+e2e/wav files/
+e2e/test-audio/
+
+# VC++ Redistributable (downloaded during CI build, ~24MB)
+src-tauri/resources/vc_redist.x64.exe

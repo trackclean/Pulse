@@ -1,0 +1,162 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    outputs:
+      release_id: ${{ steps.create.outputs.release_id }}
+    steps:
+      - name: Create draft release in trackclean/clean-track
+        id: create
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
+        run: |
+          # Delete existing release for this tag if one already exists (e.g. rebuilding)
+          gh release delete "${{ github.ref_name }}" \
+            --repo trackclean/clean-track --yes 2>/dev/null || true
+          # Also delete the tag in the target repo so we can recreate it
+          gh api --method DELETE \
+            /repos/trackclean/clean-track/git/refs/tags/${{ github.ref_name }} 2>/dev/null || true
+
+          RELEASE_ID=$(gh api \
+            --method POST \
+            /repos/trackclean/clean-track/releases \
+            -f tag_name="${{ github.ref_name }}" \
+            -f name="Pulse ${{ github.ref_name }}" \
+            -f body="See the assets below to download and install this version." \
+            -F draft=true \
+            --jq '.id')
+          echo "release_id=$RELEASE_ID" >> $GITHUB_OUTPUT
+          echo "Created release ID: $RELEASE_ID"
+
+  build:
+    needs: create-release
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows-latest
+            args: ''
+          - platform: macos-latest
+            args: '--target aarch64-apple-darwin'
+            rust-target: aarch64-apple-darwin
+          - platform: macos-latest
+            args: '--target x86_64-apple-darwin'
+            rust-target: x86_64-apple-darwin
+          - platform: ubuntu-22.04
+            args: ''
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Linux system dependencies
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            patchelf \
+            aubio-tools
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.rust-target || '' }}
+
+      - name: Download VC++ Redistributable for Windows installer
+        if: matrix.platform == 'windows-latest'
+        shell: pwsh
+        run: |
+          $url = "https://aka.ms/vs/17/release/vc_redist.x64.exe"
+          $dest = "src-tauri/resources/vc_redist.x64.exe"
+          New-Item -ItemType Directory -Force -Path (Split-Path $dest)
+          Invoke-WebRequest -Uri $url -OutFile $dest
+          Write-Host "Downloaded vc_redist.x64.exe ($($(Get-Item $dest).Length / 1MB) MB)"
+
+      - name: Create VC++ placeholder for non-Windows builds
+        if: matrix.platform != 'windows-latest'
+        shell: bash
+        run: |
+          mkdir -p src-tauri/resources
+          touch src-tauri/resources/vc_redist.x64.exe
+
+      - name: Install frontend dependencies
+        run: npm install
+
+      - name: Build Tauri app
+        uses: tauri-apps/tauri-action@v0
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          args: ${{ matrix.args }}
+
+      - name: Upload artifacts to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
+        shell: bash
+        run: |
+          TAG="${{ github.ref_name }}"
+          echo "Uploading artifacts for tag: $TAG"
+
+          # Find all installer artifacts (exclude debug and incremental build dirs)
+          FILES=$(find src-tauri/target -type f \( \
+            -name "*.msi" \
+            -o -name "*.msi.zip" \
+            -o -name "*.msi.zip.sig" \
+            -o -name "*.nsis.zip" \
+            -o -name "*.nsis.zip.sig" \
+            -o -name "*-setup.exe" \
+            -o -name "*.dmg" \
+            -o -name "*.app.tar.gz" \
+            -o -name "*.app.tar.gz.sig" \
+            -o -name "*.AppImage" \
+            -o -name "*.AppImage.tar.gz" \
+            -o -name "*.AppImage.tar.gz.sig" \
+            -o -name "*.deb" \
+            -o -name "*.rpm" \
+          \) ! -path "*/debug/*" ! -path "*/incremental/*" 2>/dev/null)
+
+          if [ -z "$FILES" ]; then
+            echo "ERROR: No artifacts found!"
+            exit 1
+          fi
+
+          echo "Artifacts found:"
+          echo "$FILES"
+
+          echo "$FILES" | xargs gh release upload "$TAG" \
+            --repo trackclean/clean-track \
+            --clobber
+
+          echo "Upload complete."
+
+  publish-release:
+    needs: [create-release, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
+        run: |
+          gh release edit "${{ github.ref_name }}" \
+            --repo trackclean/clean-track \
+            --draft=false

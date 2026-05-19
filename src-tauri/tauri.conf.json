@@ -1,0 +1,61 @@
+{
+  "productName": "Pulse",
+  "version": "1.0.8",
+  "identifier": "com.pulse.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:8080",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Pulse",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "maximized": true
+      }
+    ],
+    "security": {
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "**"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": [
+      "icons/icon.png",
+      "icons/icon.ico"
+    ],
+    "externalBin": [
+      "binaries/aubiotrack"
+    ],
+    "resources": {
+      "binaries/libaubio-5.dll": "libaubio-5.dll",
+      "resources/vc_redist.x64.exe": "resources/vc_redist.x64.exe"
+    },
+    "windows": {
+      "nsis": {
+        "installerHooks": "./windows/hooks.nsh"
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://github.com/trackclean/clean-track/releases/latest/download/latest.json"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEE2Q0EwOERCMzU4NDMxMTUKUldRVk1ZUTEyd2pLcGthd0d2M0F2cEtOSm93TElCaGxwNnZNbGJMclQ1MC85WjRndm9EZjJycVIK"
+    }
+  }
+}
