@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/trackclean/Pulse/issues"
   },
-  "author": "trackclean",'
+  "author": "trackclean",
   "scripts": {
     "dev": "node -r ./scripts/vite-crypto-polyfill.js ./node_modules/vite/bin/vite",
     "build": "vite build",
