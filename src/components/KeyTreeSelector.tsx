@@ -38,7 +38,7 @@ export function KeyTreeSelector({ value, onChange, disabled, className }: KeyTre
         <Button
           variant="outline"
           size="sm"
-          className={cn('h-7 text-xs font-mono min-w-[70px] w-fit justify-center px-2', className)}
+          className={cn('h-7 text-xs font-mono w-24 justify-center px-2', className)}
           disabled={disabled}
         >
           <span className="truncate">{displayValue}</span>
