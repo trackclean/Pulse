@@ -15,7 +15,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <UpdateChecker />
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.GITHUB_PAGES ? '/Pulse/app' : '/'}>
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -5,9 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Use relative paths for Tauri (desktop app)
-  // GitHub Pages will be deployed separately with its own build
-  base: './',
+  // Use /Pulse/app/ for GitHub Pages deployment, ./ for Tauri development
+  base: process.env.GITHUB_PAGES ? '/Pulse/app/' : './',
   server: {
     host: "::",
     port: 8080,

@@ -1,211 +1,285 @@
-# Clean Track Buddy
+<div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
+# Pulse
 
-Clean Track Buddy is a local-first audio sample cleaner and organizer built with **Tauri** and **React**. It ingests audio files, analyzes them on your machine, and helps you rename, categorize, preview, and export curated sample packs without modifying the originals.
+**Local-first audio sample cleaner & organizer**
 
-**No uploads. No tracking. Pure local processing.** All analysis runs on your machine — nothing leaves your computer.
+[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#installation)
+[![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)](#installation)
+[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](#installation)
 
-## 🎵 Features
-
-### Core Workflow
-1. Configure naming, export, and category rules in Settings and Categories
-2. Import audio via drag & drop, file picker, or clipboard paste
-3. Analyze for silence and optional musical key detection
-4. Auto-rename with preview, or manually edit names, categories, and keys
-5. Export cleaned packs to folders or ZIP archives
-
-### Audio Processing
-- **Format Support**: WAV, MP3, OGG, FLAC, M4A, AAC, WMA
-- **Waveform Display**: Visual peaks with play/pause and drag-to-seek
-- **Silence Detection**: Scans 100ms RMS windows to flag silent files
-- **Duplicate Detection**: SHA-256 content hashing during import
-- **Key Detection**: Musical key identification with confidence scores
-- **Manual BPM Entry**: Enter BPM values manually for each track
-
-### Organization & Renaming
-- **Auto-Categorization**: Keyword-based rules with customizable categories
-- **Smart Renaming**: Pattern-based naming with `{name}`, `{category}`, `{key}` tokens
-- **Preview System**: See all changes before applying them
-- **Manual Editing**: Double-click to rename, click to change category/key
-- **Restore Originals**: Batch restore original filenames
-
-### Export Options
-- **Format**: Folder copy or ZIP archive
-- **Structure**: Categorized subfolders or flat layout
-- **Selection**: Export selected files or all non-silent files
-- **Progress**: Real-time feedback with cancel support
-
-### Settings & Appearance
-- Auto-rename on import toggle
-- Customizable naming patterns and presets
-- Theme selection (light/dark/system)
-- Custom waveform colors
-- Configurable undo history depth
-- Built-in update checker (desktop)
-
-### Keyboard Shortcuts
-| Key | Action |
-|-----|--------|
-| `Space` | Play/pause current track |
-| `Ctrl/Cmd+F` | Focus search box |
-| `Ctrl/Cmd+A` | Select all files |
-| `Ctrl/Cmd+Z` | Undo |
-
-## 🚀 Quick Start
-
-### Prerequisites
-- **Node.js** ≥ 18.0.0
-- **npm** or **yarn**
-- **Rust** (for desktop builds) - [Install here](https://www.rust-lang.org/tools/install)
-
-### Installation
-
-#### Desktop App
-Download pre-built installers from the [Releases](https://github.com/gerigazda0/clean-track-buddy/releases) page:
-- Windows (`.msi`)
-- macOS (`.dmg`)
-- Linux (`.AppImage`)
-
-#### Development / Web Version
-```bash
-# Clone the repository
-git clone https://github.com/gerigazda0/clean-track-buddy.git
-cd clean-track-buddy
-
-# Install dependencies
-npm install
-
-# Start dev server (http://localhost:5173)
-npm run dev
-
-# Build for production
-npm run build
-
-# Run desktop app in dev mode
-npm run tauri dev
-
-# Build desktop app
-npm run tauri build
-```
-
-### System Requirements
-
-No additional system dependencies are required.
-
-## 🛠️ Development
-
-### Project Structure
-```
-.
-├── src/                    # React frontend
-│   ├── components/        # Reusable React components
-│   ├── pages/            # Page-level components
-│   ├── hooks/            # Custom React hooks
-│   ├── utils/            # Utility function
-│   ├── types/            # TypeScript definitions
-│   └── lib/              # Shared libraries
-├── src-tauri/            # Tauri desktop app
-│   ├── src/              # Rust backend code
-│   ├── icons/            # App icons
-│   └── Cargo.toml        # Rust dependencies
-├── e2e/                  # Playwright end-to-end tests
-├── docs/                 # Documentation
-├── scripts/              # Build and utility scripts
-└── public/               # Static assets
-```
-
-### Available Commands
-```bash
-# Development
-npm run dev              # Start Vite dev server
-npm run tauri dev        # Run desktop app with hot reload
-
-# Building
-npm run build            # Build web version
-npm run tauri build      # Build desktop app (production)
-npm run build:dev        # Build with dev settings
-
-# Testing
-npm run test:e2e         # Run Playwright tests
-npm run test:e2e:ui      # Run tests with UI
-npm run test:e2e:headed  # Run tests in headed mode
-npm run test:tauri       # Run tests with Tauri backend
-npm run test:all         # Lint + run all E2E tests
-
-# Code Quality
-npm run lint             # Run ESLint
-npm run test:report      # View Playwright test report
-```
-
-### Stack
-- **Frontend**: React 18, TypeScript, Tailwind CSS, Vite
-- **Desktop**: Tauri 2
-- **Backend**: Rust (audio analysis, file operations)
-- **UI Components**: Radix UI + shadcn/ui
-- **Testing**: Playwright
-- **Build**: Vite + Tauri CLI
-
-### Audio Analysis
-
-#### Key Detection  
-Located in `src-tauri/src/key_detection.rs`:
-- Chromatic pitch distribution analysis
-- Confidence scoring for accuracy
-- Best for tonal/melodic samples
-
-See [docs/](docs/) for detailed architecture notes.
-
-## 🤝 Contributing
-
-We'd love your contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
-- Reporting bugs
-- Suggesting features
-- Setting up your development environment
-- Submitting pull requests
-- Code style and conventions
-
-### Code of Conduct
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand our community standards.
-
-## 📝 License
-
-This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for details.
-
-## 🙏 Acknowledgments
-
-- Built with [Tauri](https://tauri.app/)
-- UI components from [Radix UI](https://www.radix-ui.com/)
-- Icons by [Lucide](https://lucide.dev/)
-- Audio analysis powered by [aubio](https://aubio.org/)
-- Testing with [Playwright](https://playwright.dev/)
-
-## 📚 Documentation
-
-- [Quick Start Guide](docs/QUICK_START_UPDATES.md)
-- [Testing Guide](docs/TESTING_GUIDE.md)
-- [App Behavior Guide](docs/APP_BEHAVIOR.md)
-- [Release Guide](docs/RELEASE_GUIDE.md)
-
-## 🐛 Found a Bug?
-
-Please [open an issue](https://github.com/gerigazda0/clean-track-buddy/issues) with:
-- Clear description of the problem
-- Steps to reproduce
-- Screenshots/logs if applicable
-- Your environment (OS, version)
-
-## 💡 Feature Requests
-
-We welcome suggestions! [Open an issue](https://github.com/gerigazda0/clean-track-buddy/issues) and tag it with `enhancement`.
-
-## 📧 Contact & Support
-
-- **Issues**: [GitHub Issues](https://github.com/gerigazda0/clean-track-buddy/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/gerigazda0/clean-track-buddy/discussions)
-- **Security**: See [SECURITY.md](SECURITY.md) for reporting security vulnerabilities
+Ingest audio files, analyze them locally, and export curated sample packs — without ever modifying your originals.
+Built for stem organizing when starting a new session (mixing & mastering), as well as for organizing samples and sample packs.
 
 ---
 
-**Made with ❤️ for audio enthusiasts and producers**
+</div>
+
+## Core Workflow
+
+```
+Settings & Categories  ➜  Import Audio  ➜  Analyze  ➜  Clean & Organize  ➜  Export
+```
+
+1. Configure naming, export, and category rules in **Settings** and **Categories**.
+2. Import audio via drag & drop, file picker, or clipboard paste.
+3. Let the app analyze files for waveform, duplicates, key, and BPM.
+4. Optionally run silence analysis and auto-rename with preview.
+5. Review, edit, and organize files.
+6. Export selected files or all non-silent files to a folder or ZIP.
+
+---
+
+## Importing Audio
+
+| Method | Details |
+| :--- | :--- |
+| **Drag & drop** | Supports both browser drag & drop and native Tauri drag & drop from the OS file explorer. |
+| **File picker** | Uses the Tauri file dialog when available, with a browser file input fallback. |
+| **Clipboard paste** | Pasting audio file items from the OS file explorer imports them when focus is not inside text inputs. |
+
+**Supported formats:** `WAV` `MP3` `OGG` `FLAC` `M4A` `AAC` `WMA`
+
+> Imported files and analysis results are kept in memory for the current session only.
+
+---
+
+## Analysis & Metadata
+
+### Waveform & Duration
+Each file is decoded locally to generate waveform peaks and duration. Waveforms support drag-to-seek playback.
+
+### Duplicate Detection
+A SHA-256 hash of file bytes is computed on import. If a hash matches a previously imported file (or a file in the same batch), the file is flagged as a duplicate.
+
+### Key Detection
+If enabled in Settings, the app can detect musical key on demand for selected files or all files. Detected keys include a confidence score and can update filenames if the active naming pattern includes `{key}`.
+
+### BPM Detection
+The desktop build uses aubiotrack (aubio) to estimate BPM and confidence on import when a file path is available. BPM can be edited manually on each track.
+
+### Silence Analysis
+A dedicated action scans RMS energy in 100 ms windows to flag silent or near-silent files. The scan can be run on all files or only the current selection, and it shows progress with cancel support.
+
+---
+
+## Categorization Rules
+
+Auto-categorization uses keyword matching against the current category list. Categories can be added, archived, deleted, or restored to defaults.
+
+- **Archived** categories are hidden from auto-categorization but preserve existing file assignments.
+- **Deleting** a category prompts for optional reassignment of existing files in that category.
+
+### Default Categories
+
+| Category | Keywords |
+| :--- | :--- |
+| **Drums** | `kick` `bd` `808` `snr` `snare` `rim` `hat` `hh` `openhat` `ride` `crash` `tom` `shaker` `clap` `perc` `percussion` `drum` `fill` `drums` |
+| **Bass** | `bass` `sub` `808` `lowend` `reese` `pluckbass` `subbass` |
+| **Synths** | `synth` `lead` `pad` `arp` `chord` `pluck` `keys` `melody` `saw` `square` `supersaw` |
+| **FX** | `fx` `effect` `riser` `sweep` `impact` `downlifter` `uplifter` `noise` `transition` `reverse` `dropfx` `hit` `ambience` `sfx` |
+| **Vox** | `vox` `vocal` `voice` `chant` `adlib` `phrase` `acapella` `talk` `shout` |
+| **Instruments** | `gtr` `guitar` `piano` `key` `organ` `string` `violin` `brass` `horn` `flute` `trumpet` `sax` `instrument` `pluck` `harp` |
+| **Background** | `background` `ambient` `atmos` `texture` `soundscape` `drone` `env` `space` `field` |
+| **Other** | *Fallback when no keyword matches* |
+
+---
+
+## Auto Rename
+
+- Auto-rename can be run on selected files or all files. A **preview dialog** shows current and new names before applying changes.
+- Auto rename uses keyword rules to clean names, normalize case, and attach categories, then ensures uniqueness by adding incremental suffixes like `_2`.
+- When files with incremented suffixes are deleted, remaining files are renumbered to remove gaps.
+
+<details>
+<summary><strong>Rename Keyword Rules</strong></summary>
+
+| Replacement | Keywords |
+| :--- | :--- |
+| **Kick** | `kick` `bd` `kck` `subkick` `lowkick` |
+| **Snare** | `snare` `snr` `rim` `rims` |
+| **Clap** | `clap` `handclap` |
+| **HiHat** | `hat` `hh` `hihat` `closedhat` `openhihat` `openhat` |
+| **Percussion** | `perc` `percussion` `bongo` `conga` `tom` `shaker` `tamb` `tambourine` |
+| **DrumLoop** | `drumloop` `drum_loop` `toploop` |
+| **Guitar** | `gtr` `guitar` `acoustic` `electricgtr` `plucked` `strum` |
+| **Piano** | `piano` `keys` `rhodes` `epiano` |
+| **Strings** | `string` `violin` `cello` `strings` `orchestra` `harp` |
+| **Brass** | `brass` `trumpet` `trombone` `horn` |
+| **Woodwind** | `flute` `woodwind` `sax` `clarinet` |
+| **Synth** | `synth` `lead` `pad` `pluck` `arp` `seq` `saw` `square` `poly` `mono` |
+| **Reese** | `reese` `basslead` |
+| **Bass** | `bass` `sub` `808` `lowend` `lowsub` |
+| **FX** | `effect` `impact` `sweep` `riser` `fall` `downlifter` `uplifter` `boom` `fx` `ambience` `sfx` |
+| **NoiseFX** | `white` `whoosh` `wash` |
+| **Transition** | `drop` `fill` `transition` |
+| **Vocal** | `vox` `vocal` `voice` `chant` `shout` `phrase` `adlib` `acapella` `bgv` `backing` |
+| **Background** | `background` `bg` `ambient` `atmos` `texture` `drone` `space` `room` `env` `field` |
+| **GlitchFX** | `glitch` `granular` `stutter` `fxloop` |
+| **Artifact** | `click` `pop` `noise` |
+| **DrumStem** | `beat` `drums` `rhythm` |
+| **Loop** | `loop` |
+| **Melody** | `melody` `melodic` `harm` `harmony` |
+| **Chords** | `chord` `chords` `progression` |
+
+</details>
+
+---
+
+## Naming Patterns
+
+Naming patterns drive how `{name}`, `{category}`, `{key}`, and `{bpm}` are combined.
+Missing values are removed cleanly so extra brackets, dashes, and underscores are not left behind.
+When building names, the app strips trailing tokens like existing category or key tags to avoid duplicates.
+
+### Preset Patterns
+
+| Pattern | Example Output |
+| :--- | :--- |
+| `{name} ({category})` | `Kick_01 (Drums)` |
+| `{name} ({category}) [{key}]` | `Kick_01 (Drums) [Cmaj]` |
+| `{name} ({category}) [{bpm}]` | `Kick_01 (Drums) [128]` |
+| `{name} ({category}) [{key}] [{bpm}]` | `Kick_01 (Drums) [Cmaj] [128]` |
+| `{category} - {name}` | `Drums - Kick_01` |
+| `{category} - {name} [{key}]` | `Drums - Kick_01 [Cmaj]` |
+| `{name}_{category}` | `Kick_01_Drums` |
+| `{name}_{category}_{key}` | `Kick_01_Drums_Cmaj` |
+| `{name}` | `Kick_01` |
+| `{name} ({key})` | `Kick_01 (Cmaj)` |
+| *Custom pattern* | *User-defined* |
+
+---
+
+## Track Review & Editing
+
+- Each track card shows **waveform**, **duration**, and **status badges** for silent or duplicate files.
+- Playback supports play/pause with **drag-to-seek**, and optional reset-to-start behavior.
+- Names can be edited by **double-clicking** a track name.
+- Categories can be changed per track via a **dropdown**.
+- Keys can be selected from a list; BPM can be edited inline.
+- A tuner button opens the **Chromatic Tuner** for detailed pitch analysis.
+- Selection checkboxes enable batch actions such as delete selected and restore original names.
+- An **undo stack** stores prior states with a configurable history depth.
+
+---
+
+## Organization & Search
+
+| Feature | Details |
+| :--- | :--- |
+| **Search** | Filters by filename, category, or key. |
+| **Group by category** | Groups tracks under their assigned category headers. |
+| **Alphabetical A-Z** | Sorts tracks alphabetically, ascending. |
+| **Alphabetical Z-A** | Sorts tracks alphabetically, descending. |
+| **Import order** | Sorts by import time, newest first. |
+| **Manual reorder** | Drag tracks to reorder the list manually. |
+
+---
+
+## Cleaning Tools
+
+| Tool | Action |
+| :--- | :--- |
+| **Analyze Silence** | Flags silent or near-silent audio and shows progress. |
+| **Delete Silent** | Removes all files flagged as silent. |
+| **Remove Duplicates** | Removes all files flagged as duplicates. |
+
+> Deleting or removing files updates incremented names to maintain numbering order.
+
+---
+
+## Export
+
+- If files are **selected**, export includes only the selected files.
+- If **no files are selected**, export includes all non-silent files.
+- Export options include **folder copy** or **ZIP archive**, and **categorized** or **flat** structure.
+- When exporting categorized folders, the app warns if any files are in the "Other" category.
+- Export shows progress and supports cancel.
+- ZIP exports are saved with a timestamped name like `Pulse_Export_<timestamp>.zip`.
+
+---
+
+## Settings & Preferences
+
+| Tab | Options |
+| :--- | :--- |
+| **Processing** | Auto-rename on import, enable key detection, toggle notifications. |
+| **Track Display** | Show or hide BPM, key, category, and tuner controls on each track. |
+| **Naming** | Select a preset pattern or enter a custom pattern. |
+| **Playback** | Reset waveform position on stop or track change. |
+| **History** | Configure max undo depth. |
+| **Export** | Default format and folder structure. |
+| **Appearance** | Theme selection and waveform color override. |
+| **About** | Version info and check for updates. |
+
+---
+
+## Chromatic Tuner
+
+- Plays the selected sample with a **waveform seek bar**.
+- Analyzes pitch to show **dominant note**, **frequency**, and **cents offset**.
+- Visualizes a **chroma spectrum** across 12 notes.
+- Lists the **top 5 spectral peaks** by strength.
+- Provides a **suggested key** with a confidence score.
+- Allows manual key selection and confirmation back to the track.
+
+---
+
+## Onboarding
+
+The first-run overlay guides users through settings, categories, and import workflow.
+File import is disabled until onboarding is completed or skipped.
+
+---
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+| :--- | :--- |
+| `Space` | Play/pause the focused track, or toggle the current playing track. |
+| `Ctrl/Cmd + F` | Focus the search field. |
+| `Ctrl/Cmd + A` | Select all files. |
+| `Ctrl/Cmd + Z` | Undo the last action. |
+
+---
+
+## Privacy & Data
+
+- All analysis runs **locally** — no files are uploaded.
+- Original files are **never modified**.
+- Exports create new copies with the chosen names and folder structure.
+- Categories and settings are stored in `localStorage`.
+- The active file list and analysis results are **session-only** and not persisted between launches.
+
+---
+
+## Platform Notes
+
+| Platform | Notes |
+| :--- | :--- |
+| **Windows / macOS** | Full feature set with bundled aubiotrack binaries. |
+| **Linux** | BPM detection requires the `aubio-tools` package. |
+| **Browser** | Key and BPM detection may not run without file path access. |
+
+> Desktop features rely on the Tauri runtime for native file dialogs, drag & drop, and updates.
+
+---
+
+## Installation
+
+Download the latest release for your platform from the [Releases](https://github.com/trackclean/clean-track/releases) page.
+
+| Platform | Format |
+| :--- | :--- |
+| Windows | `.msi` or `.exe` installer |
+| macOS (Apple Silicon) | `.dmg` |
+| macOS (Intel) | `.dmg` |
+| Linux | `.AppImage` or `.deb` |
+
+---
+
+<div align="center">
+
+**Made for producers, by producers.**
+
+</div>
