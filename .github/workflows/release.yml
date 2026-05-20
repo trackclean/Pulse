@@ -144,15 +144,3 @@ jobs:
             src-tauri/target/release/Pulse_*.msi.sig
             latest.json
           retention-days: 30
-
-  publish-release:
-    needs: [create-release, build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish release
-        env:
-          GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_TOKEN }}
-        run: |
-          gh release edit "${{ github.ref_name }}" \
-            --repo trackclean/clean-track \
-            --draft=false
