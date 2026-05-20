@@ -20,9 +20,6 @@ export default defineConfig(({ command }) => {
     {
       name: 'serve-app-index',
       apply: 'serve',
-      configResolved(config) {
-        this.config = config;
-      },
       configureServer(server) {
         return () => {
           server.middlewares.use((req, res, next) => {
