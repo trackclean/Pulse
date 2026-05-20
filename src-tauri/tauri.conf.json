@@ -3,8 +3,8 @@
   "version": "1.0.10",
   "identifier": "com.pulse.app",
   "build": {
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev:app",
+    "beforeBuildCommand": "npm run build:app",
     "devUrl": "http://localhost:8080",
     "frontendDist": "../dist"
   },
