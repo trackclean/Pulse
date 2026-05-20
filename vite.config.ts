@@ -5,8 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Use /Pulse/app/ for GitHub Pages deployment, ./ for Tauri development
-  base: process.env.GITHUB_PAGES ? '/Pulse/app/' : './',
+  // Use /Pulse/ for GitHub Pages deployment (repo name), ./ for Tauri development
+  base: process.env.GITHUB_PAGES ? '/Pulse/' : './',
   server: {
     host: "::",
     port: 8080,

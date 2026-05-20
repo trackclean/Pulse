@@ -685,6 +685,27 @@ button.screenshot-frame {
     border-radius: 100px;
 }
 
+.status-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-tag.status-available {
+    color: #00ff00;
+    background: rgba(0, 255, 0, 0.06);
+    border: 1px solid rgba(0, 255, 0, 0.12);
+}
+
+.status-tag.status-coming {
+    color: var(--text-muted);
+    background: rgba(100, 100, 100, 0.06);
+    border: 1px solid rgba(100, 100, 100, 0.12);
+}
+
 .arch-tag {
     font-size: 0.8rem;
     color: var(--text-muted);

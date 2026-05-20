@@ -100,8 +100,8 @@
                     <div class="feature-icon-wrap">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                     </div>
-                    <h3>Detect Key & BPM</h3>
-                    <p>Analyze musical key with confidence scores and estimate BPM automatically. Edit both inline on every track.</p>
+                    <h3>Detect Key & Set BPM</h3>
+                    <p>Analyze musical key with confidence scores. Auto-estimate BPM for samples under 2 minutes, or manually enter BPM for any track. Edit both inline on every track.</p>
                 </div>
                 <div class="feature-card reveal" data-delay="3">
                     <div class="feature-icon-wrap">
@@ -164,7 +164,7 @@
                 <div class="step-content">
                     <div class="step-number">02</div>
                     <h3>Analyze Tracks</h3>
-                    <p>Pulse instantly decodes waveforms, detects duplicates via SHA-256, and estimates BPM. Each track shows its waveform, duration, key, BPM, and category — all editable inline.</p>
+                    <p>Pulse instantly decodes waveforms, detects duplicates via SHA-256, and analyzes musical key. For samples under 2 minutes, BPM is estimated automatically. For longer stems or any track, you can manually set BPM. Each track shows its waveform, duration, key, BPM, and category — all editable inline.</p>
                 </div>
                 <div class="step-screenshot">
                     <button class="screenshot-frame lightbox-trigger" data-index="1" aria-label="View loaded files screenshot">
@@ -261,73 +261,62 @@
         <div class="container">
             <div class="section-header reveal">
                 <h2>Download Pulse</h2>
-                <p class="section-desc">Available for Linux, macOS, and Windows. Built with Tauri for native performance.</p>
+                <p class="section-desc">Currently available for Windows. macOS and Linux support coming soon.</p>
             </div>
             <div class="download-grid">
-                <!-- Linux -->
+                <!-- Windows - Available -->
                 <div class="download-card reveal" data-delay="0">
-                    <div class="os-icon">
-                        <svg width="44" height="44" viewBox="0 0 24 24" fill="url(#iconGrad1)"><path d="M12.504 0c-.155 0-.311.002-.465.006C7.455.143 4.196 3.26 3.683 7.443c-.233 1.907-.03 3.768.522 5.43.249.748.6 1.47 1.046 2.153.515.79 1.084 1.478 1.63 2.177.613.785 1.252 1.542 1.65 2.505.294.712.396 1.39.395 2.22v.147c0 .386.155.751.434 1.022.279.271.65.423 1.04.423h.003l.03-.001c.005.01 2.087.009 3.138.007.395 0 .77-.154 1.048-.43.277-.275.433-.644.433-1.029v-.109c-.003-.99.14-1.785.525-2.504.398-.743.991-1.48 1.593-2.233.673-.843 1.37-1.715 1.874-2.754.37-.764.63-1.567.784-2.39.17-.903.2-1.838.094-2.775C17.913 3.2 15.52.2 12.504 0z"/></svg>
-                    </div>
-                    <h3>Linux</h3>
-                    <div class="version-info">
-                        <span class="version-tag">v1.0.6</span>
-                        <span class="arch-tag">x86_64</span>
-                    </div>
-                    <p class="platform-note">BPM detection requires <code>aubio-tools</code> package</p>
-                    <div class="download-links">
-                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.6/Pulse_1.0.6_amd64.AppImage" class="download-link" download>
-                            <span class="dl-icon">&#8595;</span> AppImage (x86_64)
-                        </a>
-                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.6/Pulse_1.0.6_amd64.deb" class="download-link" download>
-                            <span class="dl-icon">&#8595;</span> Debian/Ubuntu (.deb)
-                        </a>
-                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.6/Pulse-1.0.6-1.x86_64.rpm" class="download-link" download>
-                            <span class="dl-icon">&#8595;</span> Fedora/RHEL (.rpm)
-                        </a>
-                    </div>
-                </div>
-
-                <!-- macOS -->
-                <div class="download-card reveal" data-delay="1">
-                    <div class="os-icon">
-                        <svg width="44" height="44" viewBox="0 0 24 24" fill="url(#iconGrad1)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                    </div>
-                    <h3>macOS</h3>
-                    <div class="version-info">
-                        <span class="version-tag">v1.0.6</span>
-                        <span class="arch-tag">Intel & Apple Silicon</span>
-                    </div>
-                    <p class="platform-note">Full feature set with bundled aubiotrack</p>
-                    <div class="download-links">
-                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.6/Pulse_1.0.6_x64.dmg" class="download-link" download>
-                            <span class="dl-icon">&#8595;</span> Intel DMG (x64)
-                        </a>
-                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.6/Pulse_1.0.6_aarch64.dmg" class="download-link" download>
-                            <span class="dl-icon">&#8595;</span> Apple Silicon DMG (ARM64)
-                        </a>
-                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.6/Pulse.app.tar.gz" class="download-link" download>
-                            <span class="dl-icon">&#8595;</span> App Bundle (.app.tar.gz)
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Windows -->
-                <div class="download-card reveal" data-delay="2">
                     <div class="os-icon">
                         <svg width="44" height="44" viewBox="0 0 24 24" fill="url(#iconGrad1)"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
                     </div>
                     <h3>Windows</h3>
                     <div class="version-info">
-                        <span class="version-tag">v1.0.6</span>
+                        <span class="version-tag">v1.0.9</span>
+                        <span class="status-tag status-available">Available</span>
                     </div>
-                    <p class="platform-note">Full feature set with bundled aubiotrack</p>
+                    <p class="platform-note">Full feature set • Windows 10 or later • 64-bit</p>
                     <div class="download-links">
-                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.6/Pulse_1.0.6_x64-setup.exe" class="download-link" download>
-                            <span class="dl-icon">&#8595;</span> EXE Installer
-                        </a>
-                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.6/Pulse_1.0.6_x64_en-US.msi" class="download-link" download>
+                        <a href="https://github.com/trackclean/Pulse/releases/download/v1.0.9/Pulse_1.0.9_x64_en-US.msi" class="download-link" download>
                             <span class="dl-icon">&#8595;</span> Installer (.msi)
+                        </a>
+                        <a href="https://github.com/trackclean/Pulse/releases" target="_blank" rel="noopener noreferrer" class="download-link">
+                            <span class="dl-icon">→</span> View Release
+                        </a>
+                    </div>
+                </div>
+
+                <!-- macOS - Coming Soon -->
+                <div class="download-card reveal" data-delay="1">
+                    <div class="os-icon" style="opacity: 0.6;">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="url(#iconGrad1)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    </div>
+                    <h3>macOS</h3>
+                    <div class="version-info">
+                        <span class="version-tag">v1.0.9</span>
+                        <span class="status-tag status-coming">Coming Soon</span>
+                    </div>
+                    <p class="platform-note">Intel & Apple Silicon support planned</p>
+                    <div class="download-links">
+                        <a href="https://github.com/trackclean/Pulse/discussions" target="_blank" rel="noopener noreferrer" class="download-link" style="opacity: 0.6;">
+                            <span class="dl-icon">✓</span> Notify Me (Discussions)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Linux - Coming Soon -->
+                <div class="download-card reveal" data-delay="2">
+                    <div class="os-icon" style="opacity: 0.6;">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="url(#iconGrad1)"><path d="M12.504 0c-.155 0-.311.002-.465.006C7.455.143 4.196 3.26 3.683 7.443c-.233 1.907-.03 3.768.522 5.43.249.748.6 1.47 1.046 2.153.515.79 1.084 1.478 1.63 2.177.613.785 1.252 1.542 1.65 2.505.294.712.396 1.39.395 2.22v.147c0 .386.155.751.434 1.022.279.271.65.423 1.04.423h.003l.03-.001c.005.01 2.087.009 3.138.007.395 0 .77-.154 1.048-.43.277-.275.433-.644.433-1.029v-.109c-.003-.99.14-1.785.525-2.504.398-.743.991-1.48 1.593-2.233.673-.843 1.37-1.715 1.874-2.754.37-.764.63-1.567.784-2.39.17-.903.2-1.838.094-2.775C17.913 3.2 15.52.2 12.504 0z"/></svg>
+                    </div>
+                    <h3>Linux</h3>
+                    <div class="version-info">
+                        <span class="version-tag">v1.0.9</span>
+                        <span class="status-tag status-coming">Coming Soon</span>
+                    </div>
+                    <p class="platform-note">AppImage, .deb, and .rpm formats planned</p>
+                    <div class="download-links">
+                        <a href="https://github.com/trackclean/Pulse/discussions" target="_blank" rel="noopener noreferrer" class="download-link" style="opacity: 0.6;">
+                            <span class="dl-icon">✓</span> Notify Me (Discussions)
                         </a>
                     </div>
                 </div>

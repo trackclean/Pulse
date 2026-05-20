@@ -18,6 +18,7 @@ Welcome to the Clean Track Buddy documentation! Here you'll find guides, best pr
 
 ### Releases & Deployment
 - [**Release Guide**](RELEASE_GUIDE.md) - How to create and publish releases
+- [**GitHub Pages Deployment**](GITHUB_PAGES_DEPLOYMENT.md) - Why Pulse can't be deployed on GitHub Pages and alternatives
 - [**Code of Conduct**](../CODE_OF_CONDUCT.md) - Community guidelines
 - [**Security Policy**](../SECURITY.md) - Reporting security vulnerabilities
 

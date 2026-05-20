@@ -23,7 +23,7 @@ Settings & Categories  ➜  Import Audio  ➜  Analyze  ➜  Clean & Organize  �
 
 1. Configure naming, export, and category rules in **Settings** and **Categories**.
 2. Import audio via drag & drop, file picker, or clipboard paste.
-3. Let the app analyze files for waveform, duplicates, key, and BPM.
+3. Let the app analyze files for waveform, duplicates, and key. BPM is auto-detected for samples under 2 minutes, or enter manually for any track.
 4. Optionally run silence analysis and auto-rename with preview.
 5. Review, edit, and organize files.
 6. Export selected files or all non-silent files to a folder or ZIP.
