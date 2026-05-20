@@ -1,6 +1,6 @@
 {
   "name": "clean-track-buddy",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Local-first audio sample cleaner and organizer built with Tauri and React",
   "type": "module",
   "license": "MIT",
