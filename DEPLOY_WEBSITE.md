@@ -107,7 +107,6 @@ Your website includes:
 
 **This is your marketing website, NOT the app itself:**
 - Users can see screenshots and features
-- Users can click "Try Online" and see the UI (but file uploads won't work)
 - Users click "Download Free" to get the desktop app
 - The desktop app is downloaded from GitHub Releases (separate)
 

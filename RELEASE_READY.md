@@ -140,12 +140,10 @@ Total: ~30-35 minutes
 - Prominent **"Download for Windows"** button
 - "Coming Soon" badges for macOS and Linux
 - Feature showcase with BPM manual entry noted
-- "Try Online" button (shows the UI)
 
 ### GitHub Release Page
 - Version `v1.0.9` with clear release notes
 - Download button for MSI installer
-- "This is a pre-release" badge (while testing)
 
 ### Windows Users
 - Can download the MSI installer
