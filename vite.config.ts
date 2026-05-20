@@ -14,6 +14,23 @@ export default defineConfig(({ command }) => {
     port: 8080,
   },
   plugins: [
+    // For app builds, serve src/index.html instead of root index.html
+    isAppBuild && {
+      name: 'app-index-redirect',
+      apply: 'serve',
+      configureServer(server) {
+        return () => {
+          server.middlewares.use('/', (req, res, next) => {
+            // Only redirect the root and /index.html requests
+            if ((req.url === '/' || req.url === '/index.html') && req.method === 'GET') {
+              // Rewrite to point to src/index.html
+              req.url = '/src/index.html';
+            }
+            next();
+          });
+        };
+      },
+    },
     react(),
     componentTagger(),
   ].filter(Boolean),
