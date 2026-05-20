@@ -38,26 +38,11 @@ jobs:
           echo "version=$version" >> $env:GITHUB_OUTPUT
           echo "tag=$tag" >> $env:GITHUB_OUTPUT
 
-      - name: Read MSI signature
-        id: signature
-        shell: pwsh
-        run: |
-          $sigPath = "src-tauri/target/release/Pulse_${{ steps.version.outputs.version }}_x64_en-US.msi.sig"
-          if (Test-Path $sigPath) {
-            $signature = Get-Content $sigPath
-            echo "sig=$signature" >> $env:GITHUB_OUTPUT
-            Write-Host "Signature extracted successfully"
-          } else {
-            Write-Error "Signature file not found at: $sigPath"
-            exit 1
-          }
-
-      - name: Generate latest.json
+      - name: Generate latest.json (no signature)
         id: json
         shell: pwsh
         run: |
           $version = "${{ steps.version.outputs.version }}"
-          $signature = "${{ steps.signature.outputs.sig }}"
           $pubDate = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
           
           $latestJson = @{
@@ -66,8 +51,7 @@ jobs:
             pub_date = $pubDate
             platforms = @{
               "windows-x86_64" = @{
-                signature = $signature
-                url = "https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.tag }}/Pulse_${version}_x64_en-US.msi"
+                url = "https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.tag }}/Pulse_${version}_x64-setup.exe"
               }
             }
           } | ConvertTo-Json -Depth 10
@@ -84,20 +68,26 @@ jobs:
           draft: false
           prerelease: true
           files: |
-            src-tauri/target/release/Pulse_${{ steps.version.outputs.version }}_x64_en-US.msi
-            src-tauri/target/release/Pulse_${{ steps.version.outputs.version }}_x64_en-US.msi.sig
+            src-tauri/target/release/bundle/nsis/Pulse_${{ steps.version.outputs.version }}_x64-setup.exe
             latest.json
           body: |
             ## Pulse ${{ steps.version.outputs.tag }} - Windows Release
             
             ### What's included
-            - Windows MSI installer
+            - Windows NSIS installer
             - Auto-update metadata (latest.json)
-            - Signature file for verification
             
             ### Installation
-            1. Download the `.msi` file below
-            2. Run the installer
+            1. Download the `.exe` file below
+            2. Run the installer and follow the prompts
+            
+            ### Testing
+            - Drag and drop audio files to load them
+            - Use the toolbar to edit metadata
+            - Export to save your changes
+            
+            ### Feedback
+            Found a bug? [Report an issue](https://github.com/${{ github.repository }}/issues/new)
             3. Launch Pulse from your Start Menu
             
             ### Testing Auto-Updates
