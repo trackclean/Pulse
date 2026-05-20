@@ -4,7 +4,12 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode }) => {
+  // Use src/index.html for Tauri app, index.html for website
+  const isTauri = !!process.env.TAURI_ENV_DEBUG || !!process.env.TAURI_ENV_FAMILY;
+  const inputFile = isTauri ? 'src/index.html' : 'index.html';
+
+  return {
   // Use /Pulse/ for GitHub Pages deployment (repo name), ./ for Tauri development
   base: process.env.GITHUB_PAGES ? '/Pulse/' : './',
   server: {
@@ -22,6 +27,9 @@ export default defineConfig(({ mode }) => ({
   // tauri uses a different dev server port
   envPrefix: ['VITE_', 'TAURI_'],
   build: {
+    rollupOptions: {
+      input: inputFile,
+    },
     // Tauri uses Chromium on Windows and WebKit on macOS and Linux
     target: process.env.TAURI_PLATFORM == 'windows' ? 'chrome105' : 'safari13',
     // don't minify for debug builds
@@ -29,4 +37,6 @@ export default defineConfig(({ mode }) => ({
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
   },
-}));
+};
+});
+
