@@ -1,6 +1,6 @@
 {
   "productName": "Pulse",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "identifier": "com.pulse.app",
   "build": {
     "beforeDevCommand": "npm run dev",
