@@ -1,6 +1,6 @@
 ---
 name: 🐛 Bug Report
-about: Report a bug to help us improve Clean Track Buddy
+about: Report a bug to help us improve Pulse
 title: "[BUG] Brief description of the issue"
 labels: bug
 assignees: ''

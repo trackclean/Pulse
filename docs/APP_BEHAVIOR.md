@@ -4,12 +4,12 @@
 
 **Local-first audio sample cleaner & organizer**
 
-[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#installation)
-[![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)](#installation)
-[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](#installation)
+[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#platform-notes)
 
 Ingest audio files, analyze them locally, and export curated sample packs — without ever modifying your originals.
 Built for stem organizing when starting a new session (mixing & mastering), as well as for organizing samples and sample packs.
+
+> **Note**: The first public release (v1.0.10) is Windows-only. macOS and Linux releases are coming soon.
 
 ---
 

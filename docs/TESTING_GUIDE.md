@@ -1,6 +1,6 @@
-# Clean Track Buddy - Comprehensive Testing Guide
+# Pulse - Comprehensive Testing Guide
 
-This guide provides a complete manual testing checklist for Clean Track Buddy across all platforms (Windows, macOS, Linux). Use this checklist before releases or when validating major feature changes.
+This guide provides a complete manual testing checklist for Pulse. For the first public release (v1.0.10), testing focuses on Windows. macOS and Linux releases are coming soon.
 
 ## Pre-Testing Setup
 

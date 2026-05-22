@@ -1,6 +1,6 @@
-# Contributing to Clean Track Buddy
+# Contributing to Pulse
 
-We welcome contributions! This document provides guidelines and instructions for contributing to the Clean Track Buddy project.
+We welcome contributions! This document provides guidelines and instructions for contributing to the Pulse project.
 
 ## Code of Conduct
 
@@ -35,8 +35,8 @@ We encourage feature suggestions! Please:
 1. **Fork** the repository on GitHub
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/gerigazda0/clean-track-buddy.git
-   cd clean-track-buddy
+   git clone https://github.com/trackclean/Pulse.git
+   cd Pulse
    ```
 3. **Create a branch** for your feature or bugfix:
    ```bash
@@ -48,7 +48,13 @@ We encourage feature suggestions! Please:
    ```bash
    npm install
    ```
-5. **Start development**:
+5. **Start development for the desktop app**:
+   ```bash
+   npm run tauri dev
+   ```
+   This automatically uses the app build configuration and serves the Tauri app (not the website).
+
+   To develop just the website:
    ```bash
    npm run dev
    ```
@@ -60,8 +66,9 @@ We encourage feature suggestions! Please:
 - **Components**: Keep React components focused and reusable
 - **Testing**: Add tests for new features and bugfixes
   ```bash
-  npm run test:e2e        # Run end-to-end tests
-  npm run test:e2e:ui     # Run tests with UI
+  npm run test:e2e        # Run end-to-end tests (headless)
+  npm run test:e2e:ui     # Run tests with interactive UI
+  npm run test:e2e:debug  # Debug tests step-by-step
   npm run lint            # Check for linting issues
   ```
 - **Documentation**: Update README.md or docs/ if your change affects user-facing features
@@ -127,9 +134,9 @@ Fix key selector overflow issue (#456)
 ### Running the Desktop App
 
 ```bash
-npm run tauri dev      # Run in dev mode with hot reload
-npm run tauri build    # Build the production app
-npm run test:tauri     # Test with Tauri backend
+npm run tauri dev      # Run desktop app in dev mode with hot reload
+npm run tauri build    # Build production installer (EXE on Windows, DMG on macOS, AppImage on Linux)
+npm run test:tauri     # Run e2e tests against Tauri app
 ```
 
 ### Key Features by Module
@@ -153,8 +160,8 @@ npm run test:tauri     # Test with Tauri backend
 
 ## Questions?
 
-- Check [existing issues](https://github.com/gerigazda0/clean-track-buddy/issues)
-- Start a [discussion](https://github.com/gerigazda0/clean-track-buddy/discussions)
+- Check [existing issues](https://github.com/trackclean/Pulse/issues)
+- Start a [discussion](https://github.com/trackclean/Pulse/discussions)
 - Review the [docs/](docs/) folder
 
 ## License
@@ -163,4 +170,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-Thank you for helping make Clean Track Buddy better! 🎵
+Thank you for helping make Pulse better! 🎵

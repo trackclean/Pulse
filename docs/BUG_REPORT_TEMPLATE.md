@@ -1,6 +1,6 @@
 # Bug Report Template
 
-Use this template when reporting bugs or issues with Clean Track Buddy. Providing detailed information helps identify and fix issues faster.
+Use this template when reporting bugs or issues with Pulse. Providing detailed information helps identify and fix issues faster.
 
 ---
 

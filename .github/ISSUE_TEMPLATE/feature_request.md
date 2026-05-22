@@ -1,6 +1,6 @@
 ---
 name: ✨ Feature Request
-about: Suggest a new feature or improvement for Clean Track Buddy
+about: Suggest an idea for Pulse
 title: "[FEATURE] Brief description of the feature"
 labels: enhancement
 assignees: ''

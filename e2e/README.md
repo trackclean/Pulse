@@ -1,6 +1,6 @@
 # End-to-End Tests with Playwright
 
-This directory contains Playwright end-to-end tests for Clean Track Buddy.
+This directory contains Playwright end-to-end tests for Pulse.
 
 ## Test Structure
 

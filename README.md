@@ -252,8 +252,9 @@ File import is disabled until onboarding is completed or skipped.
 
 | Platform | Notes |
 | :--- | :--- |
-| **Windows / macOS** | Full feature set with bundled aubiotrack binaries. |
-| **Linux** | BPM detection requires the `aubio-tools` package. |
+| **Windows** | Full feature set with bundled aubiotrack binary. |
+| **macOS** | Coming Soon — Full feature set with bundled aubiotrack binary. |
+| **Linux** | Coming Soon — BPM detection requires the `aubio-tools` package. |
 | **Browser** | Key and BPM detection may not run without file path access. |
 
 > Desktop features rely on the Tauri runtime for native file dialogs, drag & drop, and updates.
@@ -262,14 +263,16 @@ File import is disabled until onboarding is completed or skipped.
 
 ## Installation
 
-Download the latest release for your platform from the [Releases](https://github.com/trackclean/clean-track/releases) page.
+Download the latest release for your platform from the [Releases](https://github.com/trackclean/Pulse/releases) page.
 
-| Platform | Format |
-| :--- | :--- |
-| Windows | `.msi` or `.exe` installer |
-| macOS (Apple Silicon) | `.dmg` |
-| macOS (Intel) | `.dmg` |
-| Linux | `.AppImage` or `.deb` |
+**Currently Available:**
+| Platform | Format | Status |
+| :--- | :--- | :--- |
+| Windows | `.exe` installer | ✅ Available |
+| macOS | `.dmg` | Coming Soon |
+| Linux | `.AppImage` or `.deb` | Coming Soon |
+
+**Note**: The first public release (v1.0.10) is Windows-only for testing. macOS and Linux releases are in development.
 
 ---
 
