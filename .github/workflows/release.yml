@@ -67,6 +67,7 @@ jobs:
           name: "Pulse ${{ steps.version.outputs.tag }} - Windows Release"
           draft: false
           prerelease: true
+          overwrite: true
           files: |
             src-tauri/target/release/bundle/nsis/Pulse_${{ steps.version.outputs.version }}_x64-setup.exe
             latest.json
