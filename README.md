@@ -53,9 +53,6 @@ A SHA-256 hash of file bytes is computed on import. If a hash matches a previous
 ### Key Detection
 If enabled in Settings, the app can detect musical key on demand for selected files or all files. Detected keys include a confidence score and can update filenames if the active naming pattern includes `{key}`.
 
-### BPM Detection
-The desktop build uses aubiotrack (aubio) to estimate BPM and confidence on import when a file path is available. BPM can be edited manually on each track.
-
 ### Silence Analysis
 A dedicated action scans RMS energy in 100 ms windows to flag silent or near-silent files. The scan can be run on all files or only the current selection, and it shows progress with cancel support.
 
