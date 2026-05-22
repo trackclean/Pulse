@@ -31,8 +31,14 @@ yarn-debug.log*
 
 # Test artifacts
 test-results/
+test-pages/
+app/
 playwright-report/
 playwright-report-tauri/
+.playwright-mcp/
+
+# Dev scripts
+server.js
 
 # Optional CNAME (uncomment when using custom domain)
 # CNAME
