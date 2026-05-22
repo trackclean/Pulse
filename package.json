@@ -27,7 +27,7 @@
     "dev": "node -r ./scripts/vite-crypto-polyfill.js ./node_modules/vite/bin/vite",
     "dev:app": "cross-env VITE_APP_BUILD=true node -r ./scripts/vite-crypto-polyfill.js ./node_modules/vite/bin/vite",
     "build": "vite build",
-    "build:app": "cross-env VITE_APP_BUILD=true vite build",
+    "build:app": "cross-env VITE_APP_BUILD=true vite build && node scripts/flatten-dist.js",
     "build:website": "cross-env GITHUB_PAGES=true vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
