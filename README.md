@@ -21,7 +21,7 @@ Settings & Categories  ➜  Import Audio  ➜  Analyze  ➜  Clean & Organize  �
 
 1. Configure naming, export, and category rules in **Settings** and **Categories**.
 2. Import audio via drag & drop, file picker, or clipboard paste.
-3. Let the app analyze files for waveform, duplicates, and key. BPM is auto-detected for samples under 2 minutes, or enter manually for any track.
+3. Let the app analyze files for waveform, duplicates, and key. Manually set BPM for any track.
 4. Optionally run silence analysis and auto-rename with preview.
 5. Review, edit, and organize files.
 6. Export selected files or all non-silent files to a folder or ZIP.
@@ -123,7 +123,7 @@ Auto-categorization uses keyword matching against the current category list. Cat
 
 ## Naming Patterns
 
-Naming patterns drive how `{name}`, `{category}`, `{key}`, and `{bpm}` are combined.
+Naming patterns drive how `{name}`, `{category}`, and `{key}` are combined.
 Missing values are removed cleanly so extra brackets, dashes, and underscores are not left behind.
 When building names, the app strips trailing tokens like existing category or key tags to avoid duplicates.
 
@@ -133,8 +133,6 @@ When building names, the app strips trailing tokens like existing category or ke
 | :--- | :--- |
 | `{name} ({category})` | `Kick_01 (Drums)` |
 | `{name} ({category}) [{key}]` | `Kick_01 (Drums) [Cmaj]` |
-| `{name} ({category}) [{bpm}]` | `Kick_01 (Drums) [128]` |
-| `{name} ({category}) [{key}] [{bpm}]` | `Kick_01 (Drums) [Cmaj] [128]` |
 | `{category} - {name}` | `Drums - Kick_01` |
 | `{category} - {name} [{key}]` | `Drums - Kick_01 [Cmaj]` |
 | `{name}_{category}` | `Kick_01_Drums` |
@@ -151,7 +149,7 @@ When building names, the app strips trailing tokens like existing category or ke
 - Playback supports play/pause with **drag-to-seek**, and optional reset-to-start behavior.
 - Names can be edited by **double-clicking** a track name.
 - Categories can be changed per track via a **dropdown**.
-- Keys can be selected from a list; BPM can be edited inline.
+- Keys can be selected from a list.
 - A tuner button opens the **Chromatic Tuner** for detailed pitch analysis.
 - Selection checkboxes enable batch actions such as delete selected and restore original names.
 - An **undo stack** stores prior states with a configurable history depth.
@@ -199,7 +197,7 @@ When building names, the app strips trailing tokens like existing category or ke
 | Tab | Options |
 | :--- | :--- |
 | **Processing** | Auto-rename on import, enable key detection, toggle notifications. |
-| **Track Display** | Show or hide BPM, key, category, and tuner controls on each track. |
+| **Track Display** | Show or hide key, category, and tuner controls on each track. |
 | **Naming** | Select a preset pattern or enter a custom pattern. |
 | **Playback** | Reset waveform position on stop or track change. |
 | **History** | Configure max undo depth. |
@@ -252,10 +250,10 @@ File import is disabled until onboarding is completed or skipped.
 
 | Platform | Notes |
 | :--- | :--- |
-| **Windows** | Full feature set with bundled aubiotrack binary. |
-| **macOS** | Coming Soon — Full feature set with bundled aubiotrack binary. |
-| **Linux** | Coming Soon — BPM detection requires the `aubio-tools` package. |
-| **Browser** | Key and BPM detection may not run without file path access. |
+| **Windows** | Full feature set. |
+| **macOS** | Coming Soon — Full feature set. |
+| **Linux** | Coming Soon — Full feature set. |
+| **Browser** | Key detection may not run without file path access. |
 
 > Desktop features rely on the Tauri runtime for native file dialogs, drag & drop, and updates.
 

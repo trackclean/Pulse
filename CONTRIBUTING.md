@@ -124,7 +124,7 @@ Fix key selector overflow issue (#456)
 
 - **Frontend**: React 18, TypeScript, Tailwind CSS, Vite
 - **Desktop**: Tauri 2
-- **Backend**: Rust (BPM/key detection, file operations)
+- **Backend**: Rust (file operations, audio analysis)
 - **UI Components**: Radix UI
 - **Testing**: Playwright
 - **Linting**: ESLint

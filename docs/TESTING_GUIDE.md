@@ -103,8 +103,6 @@ Prepare a test set with:
 | Import short sample (< 2 min) | ☐ | ☐ | ☐ | Should be classified as "sample" |
 | Import long file (2+ min) | ☐ | ☐ | ☐ | Should be classified as "stem" |
 | Import 3+ stems with same duration | ☐ | ☐ | ☐ | All should be classified as "stem" (DAW export detection) |
-| Stem shows "Stem" in BPM badge | ☐ | ☐ | ☐ | Dimmed badge with tooltip |
-| Sample shows BPM value or "Set BPM" | ☐ | ☐ | ☐ | BPM detection runs for samples |
 | **Silence Detection** | | | | |
 | Click "Analyze Silence" button | ☐ | ☐ | ☐ | Analysis starts |
 | Progress indicator shows during analysis | ☐ | ☐ | ☐ | Progress bar or spinner |
@@ -121,15 +119,6 @@ Prepare a test set with:
 | Key detection fails gracefully for drums | ☐ | ☐ | ☐ | Should not crash |
 | Confidence score displays | ☐ | ☐ | ☐ | Shows percentage or N/A |
 | Detected key shown in card | ☐ | ☐ | ☐ | Key field populated |
-| **BPM Detection** | | | | |
-| BPM detected for samples (< 2 min) | ☐ | ☐ | ☐ | Use known BPM file (e.g., 120 BPM loop) |
-| BPM skipped for stems (2+ min) | ☐ | ☐ | ☐ | Badge shows "Stem" instead of BPM |
-| BPM skipped for DAW stem group | ☐ | ☐ | ☐ | 3+ files with same duration |
-| Can manually set BPM on stems | ☐ | ☐ | ☐ | Click "Stem" badge, type value |
-| BPM accuracy is reasonable | ☐ | ☐ | ☐ | Within ±5 BPM of expected |
-| BPM shows in card | ☐ | ☐ | ☐ | BPM field populated |
-| Confidence score displays | ☐ | ☐ | ☐ | Shows percentage or N/A |
-| Linux: Error message if aubio missing | N/A | N/A | ☐ | Should show helpful error |
 | **Batch Analysis** | | | | |
 | Select multiple files | ☐ | ☐ | ☐ | Checkboxes work |
 | Analyze silence on selected only | ☐ | ☐ | ☐ | Only selected files analyzed |
@@ -188,10 +177,6 @@ Prepare a test set with:
 | Click key dropdown | ☐ | ☐ | ☐ | Dropdown opens |
 | Select different key | ☐ | ☐ | ☐ | Key updates |
 | Key shows in filename (if pattern includes it) | ☐ | ☐ | ☐ | Check naming pattern |
-| **BPM Assignment** | | | | |
-| Click BPM field | ☐ | ☐ | ☐ | Input becomes editable |
-| Type new BPM value | ☐ | ☐ | ☐ | BPM updates |
-| BPM shows in filename (if pattern includes it) | ☐ | ☐ | ☐ | Check naming pattern |
 | **Chromatic Tuner** | | | | |
 | Click tuner button | ☐ | ☐ | ☐ | Tuner modal opens |
 | Tuner shows key visualization | ☐ | ☐ | ☐ | Color wheel or similar |

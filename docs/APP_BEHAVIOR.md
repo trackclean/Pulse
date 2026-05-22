@@ -23,7 +23,7 @@ Settings & Categories  ➜  Import Audio  ➜  Analyze  ➜  Clean & Organize  �
 
 1. Configure naming, export, and category rules in **Settings** and **Categories**.
 2. Import audio via drag & drop, file picker, or clipboard paste.
-3. Let the app analyze files for waveform, duplicates, key, and BPM.
+3. Let the app analyze files for waveform, duplicates, and key.
 4. Optionally run silence analysis and auto-rename with preview.
 5. Review, edit, and organize files.
 6. Export selected files or all non-silent files to a folder or ZIP.
@@ -50,24 +50,19 @@ Settings & Categories  ➜  Import Audio  ➜  Analyze  ➜  Clean & Organize  �
 Each file is decoded locally to generate waveform peaks and duration. Waveforms support drag-to-seek playback.
 
 ### Track Type Classification
-On import, each file is classified as either a **sample** or a **stem** based on duration and batch analysis:
+On import, each file is classified as either a **sample** or a **stem** based on duration:
 
-| Type | Criteria | BPM Detection |
-| :--- | :--- | :--- |
-| **Sample** | Duration under 2 minutes | Runs automatically |
-| **Stem** | Duration 2 minutes or longer | Skipped |
-| **Stem** | 3+ files sharing the same duration (within 0.5s) and each >= 2 minutes — DAW stem export detection | Skipped |
-
-Stems are displayed with a "Stem" label in the BPM badge area. Users can still set BPM manually on stems by clicking the badge.
+| Type | Criteria |
+| :--- | :--- |
+| **Sample** | Duration under 2 minutes |
+| **Stem** | Duration 2 minutes or longer |
+| **Stem** | 3+ files sharing the same duration (within 0.5s) and each >= 2 minutes — DAW stem export detection |
 
 ### Duplicate Detection
 A SHA-256 hash of file bytes is computed on import. If a hash matches a previously imported file (or a file in the same batch), the file is flagged as a duplicate.
 
 ### Key Detection
 If enabled in Settings, the app can detect musical key on demand for selected files or all files. Detected keys include a confidence score and can update filenames if the active naming pattern includes `{key}`.
-
-### BPM Detection
-The desktop build uses aubiotrack (aubio) to estimate BPM and confidence on import when a file path is available. BPM detection only runs for files classified as **samples** (under 2 minutes). Stems are skipped because they rarely contain enough rhythmic content for reliable detection. BPM can always be edited manually on each track.
 
 ### Silence Analysis
 A dedicated action scans RMS energy in 100 ms windows to flag silent or near-silent files. The scan can be run on all files or only the current selection, and it shows progress with cancel support. Audio data is fetched from disk for Tauri drag & drop files to ensure accurate analysis.
@@ -139,7 +134,7 @@ Auto-categorization uses keyword matching against the current category list. Cat
 
 ## Naming Patterns
 
-Naming patterns drive how `{name}`, `{category}`, `{key}`, and `{bpm}` are combined.
+Naming patterns drive how `{name}`, `{category}`, and `{key}` are combined.
 Missing values are removed cleanly so extra brackets, dashes, and underscores are not left behind.
 When building names, the app strips trailing tokens like existing category or key tags to avoid duplicates.
 
@@ -149,8 +144,6 @@ When building names, the app strips trailing tokens like existing category or ke
 | :--- | :--- |
 | `{name} ({category})` | `Kick_01 (Drums)` |
 | `{name} ({category}) [{key}]` | `Kick_01 (Drums) [Cmaj]` |
-| `{name} ({category}) [{bpm}]` | `Kick_01 (Drums) [128]` |
-| `{name} ({category}) [{key}] [{bpm}]` | `Kick_01 (Drums) [Cmaj] [128]` |
 | `{category} - {name}` | `Drums - Kick_01` |
 | `{category} - {name} [{key}]` | `Drums - Kick_01 [Cmaj]` |
 | `{name}_{category}` | `Kick_01_Drums` |
@@ -167,7 +160,7 @@ When building names, the app strips trailing tokens like existing category or ke
 - Playback supports play/pause with **drag-to-seek**, and optional reset-to-start behavior.
 - Names can be edited by **double-clicking** a track name.
 - Categories can be changed per track via a **dropdown**.
-- Keys can be selected from a list; BPM can be edited inline.
+- Keys can be selected from a list.
 - A tuner button opens the **Chromatic Tuner** for detailed pitch analysis.
 - Selection checkboxes enable batch actions such as delete selected and restore original names.
 - An **undo stack** stores prior states with a configurable history depth.
@@ -214,8 +207,8 @@ When building names, the app strips trailing tokens like existing category or ke
 
 | Tab | Options |
 | :--- | :--- |
-| **Processing** | Auto-rename on import, enable key detection, enable BPM detection (samples only), toggle notifications. |
-| **Track Display** | Show or hide BPM, key, category, and tuner controls on each track. |
+| **Processing** | Auto-rename on import, enable key detection, toggle notifications. |
+| **Track Display** | Show or hide key, category, and tuner controls on each track. |
 | **Naming** | Select a preset pattern or enter a custom pattern. |
 | **Playback** | Reset waveform position on stop or track change. |
 | **History** | Configure max undo depth. |
@@ -268,9 +261,10 @@ File import is disabled until onboarding is completed or skipped.
 
 | Platform | Notes |
 | :--- | :--- |
-| **Windows / macOS** | Full feature set with bundled aubiotrack binaries. |
-| **Linux** | BPM detection requires the `aubio-tools` package. |
-| **Browser** | Key and BPM detection may not run without file path access. |
+| **Windows** | Full feature set. |
+| **macOS** | Coming Soon — Full feature set. |
+| **Linux** | Coming Soon — Full feature set. |
+| **Browser** | Key detection may not run without file path access. |
 
 > Desktop features rely on the Tauri runtime for native file dialogs, drag & drop, and updates.
 
@@ -278,14 +272,16 @@ File import is disabled until onboarding is completed or skipped.
 
 ## Installation
 
-Download the latest release for your platform from the [Releases](https://github.com/trackclean/clean-track/releases) page.
+Download the latest release for your platform from the [Releases](https://github.com/trackclean/Pulse/releases) page.
 
-| Platform | Format |
-| :--- | :--- |
-| Windows | `.msi` or `.exe` installer |
-| macOS (Apple Silicon) | `.dmg` |
-| macOS (Intel) | `.dmg` |
-| Linux | `.AppImage` or `.deb` |
+**Currently Available:**
+| Platform | Format | Status |
+| :--- | :--- | :--- |
+| Windows | `.exe` installer | ✅ Available |
+| macOS | `.dmg` | Coming Soon |
+| Linux | `.AppImage` or `.deb` | Coming Soon |
+
+**Note**: The first public release (v1.0.10) is Windows-only for testing. macOS and Linux releases are in development.
 
 ---
 
